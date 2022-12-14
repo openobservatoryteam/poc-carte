@@ -1,5 +1,5 @@
 import { Logo } from 'assets';
-import { CurrentPosition, NearbyObservations } from 'components';
+import { CurrentPosition, ISSPosition, NearbyObservations } from 'components';
 import { Helmet } from 'react-helmet';
 import { MapContainer, TileLayer } from 'react-leaflet';
 
@@ -24,6 +24,7 @@ export default function App() {
           zoom={14}
         >
           <CurrentPosition />
+          <ISSPosition />
           <NearbyObservations />
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
