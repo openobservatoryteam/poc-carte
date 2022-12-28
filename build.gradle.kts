@@ -23,3 +23,13 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:3.0.0")
 }
+
+spotless {
+    java {
+        googleJavaFormat()
+    }
+    kotlinGradle {
+        target("*.gradle.kts")
+        ktlint()
+    }
+}
