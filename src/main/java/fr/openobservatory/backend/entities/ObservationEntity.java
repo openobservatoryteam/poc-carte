@@ -3,10 +3,12 @@ package fr.openobservatory.backend.entities;
 import jakarta.persistence.*;
 import java.time.Instant;
 import lombok.Data;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Data
 @Entity
+@Accessors(fluent = true)
 public class ObservationEntity {
 
   @Id @GeneratedValue private Integer id;
@@ -24,22 +26,4 @@ public class ObservationEntity {
   @ManyToOne private UserEntity author;
 
   @CreationTimestamp private Instant createdAt;
-
-  public static ObservationEntity create(
-      Double latitude,
-      Double longitude,
-      Integer orientation,
-      CelestialBodyEntity celestialBody,
-      UserEntity author,
-      String description) {
-    var observation = new ObservationEntity();
-    observation.setLatitude(latitude);
-    observation.setLongitude(longitude);
-    observation.setOrientation(orientation);
-    observation.setCelestialBody(celestialBody);
-    observation.setAuthor(author);
-    observation.setDescription(description);
-    observation.setCreatedAt(Instant.now());
-    return observation;
-  }
 }

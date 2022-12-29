@@ -6,6 +6,7 @@ import fr.openobservatory.backend.entities.UserEntity;
 import fr.openobservatory.backend.repositories.CelestialBodyRepository;
 import fr.openobservatory.backend.repositories.ObservationRepository;
 import fr.openobservatory.backend.repositories.UserRepository;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -32,44 +33,58 @@ public class DatabaseFiller {
             new UserEntity("marybtho"));
     var bodies =
         List.of(
-            CelestialBodyEntity.create("Mars"),
-            CelestialBodyEntity.create("Mercure"),
-            CelestialBodyEntity.create("Neptune"),
-            CelestialBodyEntity.create("Soleil"));
-    var observations =
-        List.of(
-            ObservationEntity.create(
-                49.441750062818144, 1.090743186110451, 0, bodies.get(3), users.get(0), null),
-            ObservationEntity.create(
-                49.43089503379546,
-                1.0839555895177384,
-                90,
-                bodies.get(2),
-                users.get(2),
-                "Whaou j'ai vu Neptune"),
-            ObservationEntity.create(
-                49.447273149114366,
-                1.0924529935376541,
-                15,
-                bodies.get(0),
-                users.get(1),
-                "Une sacrée vue sur Mars !"),
-            ObservationEntity.create(
-                49.43851868471619,
-                1.110829923383208,
-                78,
-                bodies.get(1),
-                users.get(5),
-                "Mercure, c'est beau"),
-            ObservationEntity.create(
-                49.386955811932225,
-                1.0693351828124036,
-                44,
-                bodies.get(3),
-                users.get(3),
-                "Le Soleil vu en cours"),
-            ObservationEntity.create(
-                49.29345564180719, 1.0042352782499628, 160, bodies.get(2), users.get(4), null));
+            new CelestialBodyEntity("Mars"),
+            new CelestialBodyEntity("Mercure"),
+            new CelestialBodyEntity("Neptune"),
+            new CelestialBodyEntity("Soleil"));
+    var observations = new ArrayList<ObservationEntity>();
+    var observation = new ObservationEntity();
+    observations.add(
+        observation
+            .latitude(49.441750062818144)
+            .longitude(1.090743186110451)
+            .orientation(0)
+            .celestialBody(bodies.get(3))
+            .author(users.get(0)));
+    observations.add(
+        observation
+            .latitude(49.43089503379546)
+            .longitude(1.0839555895177384)
+            .orientation(90)
+            .celestialBody(bodies.get(2))
+            .author(users.get(2))
+            .description("Whaou j'ai vu Neptune"));
+    observations.add(
+        observation
+            .latitude(49.447273149114366)
+            .longitude(1.0924529935376541)
+            .orientation(15)
+            .celestialBody(bodies.get(0))
+            .author(users.get(1))
+            .description("Une sacrée vue sur Mars !"));
+    observations.add(
+        observation
+            .latitude(49.43851868471619)
+            .longitude(1.110829923383208)
+            .orientation(78)
+            .celestialBody(bodies.get(1))
+            .author(users.get(5))
+            .description("Mercure, c'est beau"));
+    observations.add(
+        observation
+            .latitude(49.386955811932225)
+            .longitude(1.0693351828124036)
+            .orientation(44)
+            .celestialBody(bodies.get(3))
+            .author(users.get(3))
+            .description("Le Soleil vu en cours"));
+    observations.add(
+        observation
+            .latitude(49.29345564180719)
+            .longitude(1.0042352782499628)
+            .orientation(160)
+            .celestialBody(bodies.get(2))
+            .author(users.get(4)));
     return args -> {
       userRepository.saveAll(users);
       celestialBodyRepository.saveAll(bodies);
