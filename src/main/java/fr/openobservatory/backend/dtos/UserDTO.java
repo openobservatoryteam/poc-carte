@@ -1,3 +1,9 @@
 package fr.openobservatory.backend.dtos;
 
-public record UserDTO(int id, String username) {}
+import lombok.Data;
+
+@Data
+public class UserDTO {
+  private Integer id;
+  private String username;
+}

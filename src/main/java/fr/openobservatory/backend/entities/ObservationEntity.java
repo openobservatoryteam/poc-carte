@@ -8,7 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 @Data
 @Entity
-@Accessors(fluent = true)
+@Accessors(chain = true)
 public class ObservationEntity {
 
   @Id @GeneratedValue private Integer id;

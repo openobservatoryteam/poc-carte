@@ -41,50 +41,55 @@ public class DatabaseFiller {
     var observation = new ObservationEntity();
     observations.add(
         observation
-            .latitude(49.441750062818144)
-            .longitude(1.090743186110451)
-            .orientation(0)
-            .celestialBody(bodies.get(3))
-            .author(users.get(0)));
+            .setLatitude(49.441750062818144)
+            .setLongitude(1.090743186110451)
+            .setOrientation(0)
+            .setCelestialBody(bodies.get(3))
+            .setAuthor(users.get(0)));
+    observation = new ObservationEntity();
     observations.add(
         observation
-            .latitude(49.43089503379546)
-            .longitude(1.0839555895177384)
-            .orientation(90)
-            .celestialBody(bodies.get(2))
-            .author(users.get(2))
-            .description("Whaou j'ai vu Neptune"));
+            .setLatitude(49.43089503379546)
+            .setLongitude(1.0839555895177384)
+            .setOrientation(90)
+            .setCelestialBody(bodies.get(2))
+            .setAuthor(users.get(2))
+            .setDescription("Whaou j'ai vu Neptune"));
+    observation = new ObservationEntity();
     observations.add(
         observation
-            .latitude(49.447273149114366)
-            .longitude(1.0924529935376541)
-            .orientation(15)
-            .celestialBody(bodies.get(0))
-            .author(users.get(1))
-            .description("Une sacrée vue sur Mars !"));
+            .setLatitude(49.447273149114366)
+            .setLongitude(1.0924529935376541)
+            .setOrientation(15)
+            .setCelestialBody(bodies.get(0))
+            .setAuthor(users.get(1))
+            .setDescription("Une sacrée vue sur Mars !"));
+    observation = new ObservationEntity();
     observations.add(
         observation
-            .latitude(49.43851868471619)
-            .longitude(1.110829923383208)
-            .orientation(78)
-            .celestialBody(bodies.get(1))
-            .author(users.get(5))
-            .description("Mercure, c'est beau"));
+            .setLatitude(49.43851868471619)
+            .setLongitude(1.110829923383208)
+            .setOrientation(78)
+            .setCelestialBody(bodies.get(1))
+            .setAuthor(users.get(5))
+            .setDescription("Mercure, c'est beau"));
+    observation = new ObservationEntity();
     observations.add(
         observation
-            .latitude(49.386955811932225)
-            .longitude(1.0693351828124036)
-            .orientation(44)
-            .celestialBody(bodies.get(3))
-            .author(users.get(3))
-            .description("Le Soleil vu en cours"));
+            .setLatitude(49.386955811932225)
+            .setLongitude(1.0693351828124036)
+            .setOrientation(44)
+            .setCelestialBody(bodies.get(3))
+            .setAuthor(users.get(3))
+            .setDescription("Le Soleil vu en cours"));
+    observation = new ObservationEntity();
     observations.add(
         observation
-            .latitude(49.29345564180719)
-            .longitude(1.0042352782499628)
-            .orientation(160)
-            .celestialBody(bodies.get(2))
-            .author(users.get(4)));
+            .setLatitude(49.29345564180719)
+            .setLongitude(1.0042352782499628)
+            .setOrientation(160)
+            .setCelestialBody(bodies.get(2))
+            .setAuthor(users.get(4)));
     return args -> {
       userRepository.saveAll(users);
       celestialBodyRepository.saveAll(bodies);

@@ -13,7 +13,7 @@ export default function NearbyObservations() {
           observations.payload.map((o: any) => (
             <Marker
               key={`OBS_${o.id}`}
-              position={[o.location.latitude, o.location.longitude]}
+              position={[o.latitude, o.longitude]}
             >
               <Popup>
                 <p>

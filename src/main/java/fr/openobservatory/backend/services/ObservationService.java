@@ -15,14 +15,8 @@ public class ObservationService {
   private final ObservationRepository observationRepository;
   private final GenericTransformator<ObservationEntity, ObservationDTO> observationTransformator;
 
-  private final Double LOCATION_PRECISION = 1.0;
-
   public List<ObservationDTO> getNearbyObservations(Double latitude, Double longitude) {
-    System.out.println("---");
-    System.out.println(latitude - LOCATION_PRECISION);
-    System.out.println(latitude + LOCATION_PRECISION);
-    System.out.println(observationRepository.findAll().iterator().next().latitude());
-    System.out.println("---");
+    Double LOCATION_PRECISION = 1.0;
     return observationTransformator.modelsToDtos(
         observationRepository.findAllByLatitudeBetweenAndLongitudeBetween(
             latitude - LOCATION_PRECISION, latitude + LOCATION_PRECISION,

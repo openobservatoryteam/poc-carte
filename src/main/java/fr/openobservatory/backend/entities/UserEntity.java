@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
 
 @Data
 @Entity
-@Accessors(fluent = true, chain = true)
+@Accessors(chain = true)
 public class UserEntity {
 
   public UserEntity() {}

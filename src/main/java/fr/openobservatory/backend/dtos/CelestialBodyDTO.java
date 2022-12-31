@@ -1,3 +1,9 @@
 package fr.openobservatory.backend.dtos;
 
-public record CelestialBodyDTO(Integer id, String name) {}
+import lombok.Data;
+
+@Data
+public class CelestialBodyDTO {
+  private Integer id;
+  private String name;
+}
