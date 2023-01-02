@@ -10,10 +10,10 @@ export default function NearbyObservations() {
       const { lat, lng } = map.getCenter();
       findAllNearby(lat, lng).then((observations) =>
         setObservations(
-          observations.map((o: any) => (
+          observations.payload.map((o: any) => (
             <Marker
               key={`OBS_${o.id}`}
-              position={[o.location.latitude, o.location.longitude]}
+              position={[o.latitude, o.longitude]}
             >
               <Popup>
                 <p>
